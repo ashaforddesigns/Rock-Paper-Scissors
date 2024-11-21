@@ -18,6 +18,8 @@ Here are the steps I am taking to build this thing:
 
 From what I've read, online, this should be the most simple strategy for myself so I don't get too overwhelmed learning GUI and going through the Tkinter documentation.
 
+I also used this chart as a visual aid on the scenarios ![rock paper scissors outcome table](https://user-images.githubusercontent.com/24843872/80303689-53ac4400-87cf-11ea-96d1-7f845e6f1379.png)
+
 ### Takeaways & What I Learned
 
 I'm looking forward to finally watching some of the hangman tutorials out there to see what other ways people have decided to solve this. Maybe I'll learn something new!
