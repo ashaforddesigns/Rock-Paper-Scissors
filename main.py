@@ -9,9 +9,7 @@ compResponse = random.choice(RPS)
 
 #scenarios
 
-while True:
-    if userResponse == "q":
-        break
+while userResponse is not "q":
     # tied
     if compResponse == userResponse:
         print("It's a tie! :0")
@@ -21,11 +19,13 @@ while True:
     # the user loses
     else:
         print("You lost! I chose", compResponse)
+    userResponse = input("Rock, Paper or Scissors? (press (q) to quit): ")
+    compResponse = random.choice(RPS)
 
 
 
-    #TESTING PURPOSES--delete later   
-    print("FOR TESTING:", userResponse, compResponse)
+#TESTING PURPOSES--delete later   
+print("FOR TESTING:", userResponse, compResponse)
 
 #GOALS:
 #plays until user hits "q"...
