@@ -31,61 +31,74 @@ import random
 # root.bind("<Return>", calculate) # says the return key on the keyboard is the same as hitting the calculate button
 # root.mainloop()
 
+    
+def game(userResponse):
+    # initilizing variables
+    RPS = ["rock", "paper", "scissors"]
+    compResponse = random.choice(RPS)
+    global compScore, userScore, MSG #you must make it global in order to be acessed by the gui
+    
+    # tied
+    if compResponse == userResponse:
+        MSG.set("It's a draw this round")
+    # the user wins
+    elif (compResponse == "rock" and userResponse == "paper") or (compResponse == "paper" and userResponse == "scissors") or (compResponse == "scissors" and userResponse == "rock"):
+        MSG.set("You win this round! I chose", compResponse)
+        userScore.set(userScore.get() + 1)
+    # the user loses
+    else:
+        MSG.set("You lost this round! I chose", compResponse)
+        compScore.set(compScore.get() + 1)
+
+    # # end screen
+    # print("The final score is: Me -", compScore, "You - ", userScore)
+    # if compScore > userScore:
+    #     print("I have won! Sorry buddy")
+    # elif compScore == userScore:
+    #     print("The game ended in a tie :0 Rematch?")
+    # else:
+    #     print("Congratulations! You beat me.")
+
+
 root = Tk()
 root.title("Rock, Paper, Scissors, SHOOT!")
 
 mainFrame = ttk.Frame(root, padding="3 3 12 12")
 mainFrame.grid(column=0, row=0, sticky=(N, W, E, S))
 
-ttk.Label(mainFrame, text="Let's play rock, paper, scissors!").grid(column=0, row=0)
-ttk.Label(mainFrame, text="Make your moover").grid(column=0, row=1)
+#center this thing later
+MSG = StringVar() # this is a TKinter message. to retrieve it you must use the .get() fuction
+ttk.Label(mainFrame, textvariable=MSG).grid(column=0, row=0)
 
 
-Rock = StringVar()
-rockButton = ttk.Button(mainFrame, text="Rock", textvariable=Rock)
-rockButton.grid(column=0, row=2, sticky=(W, E))
+ttk.Label(mainFrame, text="Make your move").grid(column=0, row=1)
 
-Paper = StringVar()
-PaperButton = ttk.Button(mainFrame, text="Paper", textvariable=Paper)
+
+Rock = StringVar(value="Rock")
+rockButton = ttk.Button(mainFrame, command=lambda: game("rock"), textvariable=Rock, width=4) #if you dont add lambda the game run the fuction immediately
+rockButton.grid(column=0, row=2, sticky=(W, E)) 
+
+Paper = StringVar(value="Paper")
+PaperButton = ttk.Button(mainFrame, command=lambda: game("paper"), textvariable=Paper, width=5)
 PaperButton.grid(column=1, row=2, sticky=(W, E))
 
-Scissors = StringVar()
-ScissorsButton = ttk.Button(mainFrame, text="Scissors", textvariable=Scissors)
+Scissors = StringVar(value="Scissors")
+ScissorsButton = ttk.Button(mainFrame, command=lambda: game("scissors"), textvariable=Scissors, width=8)
 ScissorsButton.grid(column=2, row=2, sticky=(W, E))
 
 ttk.Label(mainFrame, text="My Score").grid(column=0, row=3)
-ttk.Label(mainFrame, text="Your Score").grid(column=0, row=3)
+ttk.Label(mainFrame, text="Your Score").grid(column=1, row=3)
 
-# initilizing variables
-userResponse = input("Rock, Paper or Scissors? (press (q) to quit): ")
-RPS = ["rock", "paper", "scissors"]
-compResponse = random.choice(RPS)
-compScore = 0
-userScore = 0
-#game scenarios
-while userResponse is not "q":
-    # tied
-    if compResponse == userResponse:
-        print("It's a draw this round")
-    # the user wins
-    elif (compResponse == "rock" and userResponse == "paper") or (compResponse == "paper" and userResponse == "scissors") or (compResponse == "scissors" and userResponse == "rock"):
-        print("You win this round! I chose", compResponse)
-        userScore+=1
-    # the user loses
-    else:
-        print("You lost this round! I chose", compResponse)
-        compScore+=1
-    
-    userResponse = input("Rock, Paper or Scissors? (press (q) to quit): ")
-    compResponse = random.choice(RPS)
-    print("The score is currently: ", "Me - ", compScore, "You - ", userScore)
+compScore = IntVar()
+compScore.set(0)
+ttk.Label(mainFrame, textvariable=compScore).grid(column=0,row=4)
 
-# end screen
-print("The final score is: Me -", compScore, "You - ", userScore)
-if compScore > userScore:
-    print("I have won! Sorry buddy")
-elif compScore == userScore:
-    print("The game ended in a tie :0 Rematch?")
-else:
-    print("Congratulations! You beat me.")
+
+userScore = IntVar()
+userScore.set(0)
+ttk.Label(mainFrame, textvariable=userScore).grid(column=1,row=4)
+
+reset = StringVar(value="Reset")
+ttk.Button(mainFrame, textvariable=reset, width=8).grid(column=1, row=5)
+root.mainloop()
 

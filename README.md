@@ -21,5 +21,7 @@ From what I've read, online, this should be the most simple strategy for myself 
 I also used this chart as a visual aid on the scenarios ![rock paper scissors outcome table](https://user-images.githubusercontent.com/24843872/80303689-53ac4400-87cf-11ea-96d1-7f845e6f1379.png)
 
 ### Takeaways & What I Learned
-
-I'm looking forward to finally watching some of the hangman tutorials out there to see what other ways people have decided to solve this. Maybe I'll learn something new!
+- How to read documentation
+It was actually a lot more simple than I had orginally thught, but takes some time for sure.
+- Fuctions
+In all of the practice python assignments, I never had to really use functions so this was great practice.
