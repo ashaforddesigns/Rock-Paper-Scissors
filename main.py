@@ -43,22 +43,17 @@ def game(userResponse):
         MSG.set("It's a draw this round")
     # the user wins
     elif (compResponse == "rock" and userResponse == "paper") or (compResponse == "paper" and userResponse == "scissors") or (compResponse == "scissors" and userResponse == "rock"):
-        MSG.set("You win this round! I chose", compResponse)
+        MSG.set(f"You win this round! I chose {compResponse}") # you must use an f string so everything stays a string, no variables
         userScore.set(userScore.get() + 1)
     # the user loses
     else:
-        MSG.set("You lost this round! I chose", compResponse)
+        MSG.set(f"You lost this round! I chose {compResponse}")
         compScore.set(compScore.get() + 1)
 
-    # # end screen
-    # print("The final score is: Me -", compScore, "You - ", userScore)
-    # if compScore > userScore:
-    #     print("I have won! Sorry buddy")
-    # elif compScore == userScore:
-    #     print("The game ended in a tie :0 Rematch?")
-    # else:
-    #     print("Congratulations! You beat me.")
-
+def resetGame():
+    MSG.set("")
+    compScore.set(0)
+    userScore.set(0)
 
 root = Tk()
 root.title("Rock, Paper, Scissors, SHOOT!")
@@ -98,7 +93,7 @@ userScore = IntVar()
 userScore.set(0)
 ttk.Label(mainFrame, textvariable=userScore).grid(column=1,row=4)
 
-reset = StringVar(value="Reset")
-ttk.Button(mainFrame, textvariable=reset, width=8).grid(column=1, row=5)
+reset = StringVar()
+ttk.Button(mainFrame, text="Reset", command=lambda: resetGame(), width=8).grid(column=1, row=5)
 root.mainloop()
 
