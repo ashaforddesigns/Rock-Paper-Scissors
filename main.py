@@ -55,45 +55,51 @@ def resetGame():
     compScore.set(0)
     userScore.set(0)
 
+
+
 root = Tk()
 root.title("Rock, Paper, Scissors, SHOOT!")
 
 mainFrame = ttk.Frame(root, padding="3 3 12 12")
 mainFrame.grid(column=0, row=0, sticky=(N, W, E, S))
 
+
 #center this thing later
 MSG = StringVar() # this is a TKinter message. to retrieve it you must use the .get() fuction
-ttk.Label(mainFrame, textvariable=MSG).grid(column=0, row=0)
+ttk.Label(mainFrame, textvariable=MSG).grid(column=0, row=0,columnspan=3) 
 
 
-ttk.Label(mainFrame, text="Make your move").grid(column=0, row=1)
+ttk.Label(mainFrame, text="Make your move").grid(column=0, row=1, columnspan=3)
 
 
 Rock = StringVar(value="Rock")
 rockButton = ttk.Button(mainFrame, command=lambda: game("rock"), textvariable=Rock, width=4) #if you dont add lambda the game run the fuction immediately
-rockButton.grid(column=0, row=2, sticky=(W, E)) 
+rockButton.grid(column=0, row=2) 
 
 Paper = StringVar(value="Paper")
 PaperButton = ttk.Button(mainFrame, command=lambda: game("paper"), textvariable=Paper, width=5)
-PaperButton.grid(column=1, row=2, sticky=(W, E))
+PaperButton.grid(column=1, row=2)
 
 Scissors = StringVar(value="Scissors")
 ScissorsButton = ttk.Button(mainFrame, command=lambda: game("scissors"), textvariable=Scissors, width=8)
-ScissorsButton.grid(column=2, row=2, sticky=(W, E))
+ScissorsButton.grid(column=2, row=2)
 
-ttk.Label(mainFrame, text="My Score").grid(column=0, row=3)
-ttk.Label(mainFrame, text="Your Score").grid(column=1, row=3)
+ttk.Label(mainFrame, text="My Score").grid(column=0, row=3, columnspan=2)
+ttk.Label(mainFrame, text="Your Score").grid(column=1, row=3, columnspan=2)
 
 compScore = IntVar()
 compScore.set(0)
-ttk.Label(mainFrame, textvariable=compScore).grid(column=0,row=4)
+ttk.Label(mainFrame, textvariable=compScore).grid(column=0,row=4, columnspan=2)
 
 
 userScore = IntVar()
 userScore.set(0)
-ttk.Label(mainFrame, textvariable=userScore).grid(column=1,row=4)
+ttk.Label(mainFrame, textvariable=userScore).grid(column=1,row=4, columnspan=2)
 
 reset = StringVar()
 ttk.Button(mainFrame, text="Reset", command=lambda: resetGame(), width=8).grid(column=1, row=5)
 root.mainloop()
+
+
+
 

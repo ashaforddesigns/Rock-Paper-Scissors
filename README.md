@@ -4,7 +4,6 @@ I am making the traditional rock, paper, scissor using Python and I'm building a
 
 
 ## Process
-<!--No text needed-->
 ### Inspiration
 I was inspired by ChatGPT. It gave me a list of beginner projects I could do and this one had mentioned GUI in particular. As a noob developer, I defintely feel like I have this cool, new ability to make things, but I'm still not sure of all the infinite possiblities I can do still. 
 
@@ -25,3 +24,6 @@ I also used this chart as a visual aid on the scenarios ![rock paper scissors ou
 It was actually a lot more simple than I had orginally thught, but takes some time for sure.
 - Fuctions
 In all of the practice python assignments, I never had to really use functions so this was great practice.
+In this case, the fuctions did not need to return any variable back since it all appears in the GUI.
+- Objects outside of Python
+Something I'm still trying to understand is objects in python. IntVar(), and StringVar() are both TKinter objects which really threw me off. I really need to pay attention to what objects are coming from what library so I can more effienctly build these programs.
