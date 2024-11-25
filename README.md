@@ -30,7 +30,6 @@ Something I'm still trying to understand is objects in python. IntVar(), and Str
 
 #### Help Wanted 
 If you know why 
-`for child in mainFrame.winfo_children(): 
-    child.grid_configure(padx=5, pady=5)`
+`for child in mainFrame.winfo_children(): <br> child.grid_configure(padx=5, pady=5)`
 wasn't working for me, please let me know! It didn't seem to work no matter where I had placed it in the code.
 
