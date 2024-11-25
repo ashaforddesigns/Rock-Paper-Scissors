@@ -1,4 +1,4 @@
-# Rock, Paper, Scissors :rock: :paper: :scissors:
+# Rock, Paper, Scissors :rock: :clipboard: :scissors:
 ## Goals
 I am making the traditional rock, paper, scissor using Python and I'm building a GUI front-end interface alongside it via tkinter.
 
@@ -27,3 +27,10 @@ In all of the practice python assignments, I never had to really use functions s
 In this case, the fuctions did not need to return any variable back since it all appears in the GUI.
 - Objects outside of Python
 Something I'm still trying to understand is objects in python. IntVar(), and StringVar() are both TKinter objects which really threw me off. I really need to pay attention to what objects are coming from what library so I can more effienctly build these programs.
+
+#### Help Wanted 
+If you know why 
+```for child in mainFrame.winfo_children(): 
+    child.grid_configure(padx=5, pady=5)```
+wasn't working for me, please let me know! It didn't seem to work no matter where I had placed it in the code.
+
